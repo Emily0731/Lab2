@@ -732,7 +732,7 @@ Headers:004003ff00              ??          00h
                             LAB_00401000:                 ;XREF[3,0]:   00400104,004001dc,00403150
 .text:00401000  56              PUSH        ESI                                     
 .text:00401001  8bf1            MOV         ESI,ECX                                 
-.text:00401003  e870000000      CALL        FUN_N1.21                               ;undefined FUN_N1.21(undefined4 * par...
+.text:00401003  e870000000      CALL        FUN_L1.21                               ;undefined FUN_L1.21(undefined4 * par...
 .text:00401008  f644240801      TEST        byte ptr [ESP + 0x8],0x1                
 .text:0040100d  7407            JZ          LAB_00401016                            
 .text:0040100f  56              PUSH        ESI                                     
@@ -772,16 +772,16 @@ Headers:004003ff00              ??          00h
 .text:00401042  8b451c          MOV         EAX,dword ptr [EBP + param_6+0x4]       
 .text:00401045  c70650314000    MOV         dword ptr [ESI],.rdata:PTR_LAB_00403150 ;= 00401000
 .text:0040104b  894610          MOV         dword ptr [ESI + 0x10],EAX              
-.text:0040104e  e846010000      CALL        FUN_N1.2&13.1                           ;undefined4 FUN_N1.2&13.1(void * this...
+.text:0040104e  e846010000      CALL        FUN_L1.2&13.1                           ;undefined4 FUN_L1.2&13.1(void * this...
 .text:00401053  ff7510          PUSH        dword ptr [EBP + param_3+0x4]           
 .text:00401056  8bce            MOV         this,ESI                                
-.text:00401058  e881010000      CALL        FUN_N.1.2&13.2                          ;undefined4 FUN_N.1.2&13.2(void * thi...
+.text:00401058  e881010000      CALL        FUN_L.1.2&13.2                          ;undefined4 FUN_L.1.2&13.2(void * thi...
 .text:0040105d  ff750c          PUSH        dword ptr [EBP + param_2+0x4]           
 .text:00401060  8bce            MOV         this,ESI                                
-.text:00401062  e8d4010000      CALL        FUN_N1.2.1                              ;undefined4 FUN_N1.2.1(void * this, c...
+.text:00401062  e8d4010000      CALL        FUN_L1.2.1                              ;undefined4 FUN_L1.2.1(void * this, c...
 .text:00401067  ff7514          PUSH        dword ptr [EBP + param_4+0x4]           
 .text:0040106a  8bce            MOV         this,ESI                                
-.text:0040106c  e80f020000      CALL        FUN_N1.2&13.3                           ;undefined4 FUN_N1.2&13.3(void * this...
+.text:0040106c  e80f020000      CALL        FUN_L1.2&13.3                           ;undefined4 FUN_L1.2&13.3(void * this...
 .text:00401071  8bc6            MOV         EAX,ESI                                 
 .text:00401073  5e              POP         ESI                                     
 .text:00401074  5d              POP         EBP                                     
@@ -789,14 +789,14 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.21(undefined4 * param_1)
+                            ;undefined FUN_L1.21(undefined4 * param_1)
           ;param_1       undefined4 *       ECX                      
                                                           ;XREF[5,0]:   00401003,0040195d,0040258a,00402c4b
                                                           ;             00402c5f
 .text:00401078  56              PUSH        ESI                                     
 .text:00401079  8bf1            MOV         ESI,param_1                             
 .text:0040107b  c70650314000    MOV         dword ptr [ESI],.rdata:PTR_LAB_00403150 ;= 00401000
-.text:00401081  e846030000      CALL        FUN_N1.4                                ;undefined4 FUN_N1.4(int param_1)
+.text:00401081  e846030000      CALL        FUN_L1.4                                ;undefined4 FUN_L1.4(int param_1)
 .text:00401086  8b4618          MOV         EAX,dword ptr [ESI + 0x18]              
 .text:00401089  85c0            TEST        EAX,EAX                                 
 .text:0040108b  7407            JZ          LAB_00401094                            
@@ -830,7 +830,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined * FUN_N1.3(int param_1)
+                            ;undefined * FUN_L1.3(int param_1)
           ;param_1       int                ECX                      
                                                           ;XREF[4,0]:   004014a9,0040242f,0040244a,00402614
 .text:004010c0  51              PUSH        param_1                                 
@@ -935,7 +935,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined4 FUN_N1.2&13.1(void * this, char * param_1)
+                            ;undefined4 FUN_L1.2&13.1(void * this, char * param_1)
           ;this          void *             ECX                      
           ;param_1       char *               4                      ;XREF[1,0]:   0040119a
                                                           ;XREF[2,0]:   0040104e,00402404
@@ -978,7 +978,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined4 FUN_N.1.2&13.2(void * this, char * param_1)
+                            ;undefined4 FUN_L.1.2&13.2(void * this, char * param_1)
           ;this          void *             ECX                      
           ;param_1       char *               4                      ;XREF[1,0]:   004011df
                                                           ;XREF[2,0]:   00401058,00402413
@@ -1029,7 +1029,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined4 FUN_N1.2.1(void * this, char * param_1)
+                            ;undefined4 FUN_L1.2.1(void * this, char * param_1)
           ;this          void *             ECX                      
           ;param_1       char *               4                      ;XREF[1,0]:   0040123c
                                                           ;XREF[1,0]:   00401062
@@ -1072,7 +1072,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined4 FUN_N1.2&13.3(void * this, char * param_1)
+                            ;undefined4 FUN_L1.2&13.3(void * this, char * param_1)
           ;this          void *             ECX                      
           ;param_1       char *               4                      ;XREF[1,0]:   00401281
                                                           ;XREF[2,0]:   0040106c,00402427
@@ -1115,7 +1115,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;int FUN_N1.6(void * this, undefined4 param_1, undefined4 param_2)
+                            ;int FUN_L1.6(void * this, undefined4 param_1, undefined4 param_2)
           ;this          void *             ECX                      
           ;param_1       undefined4           4                      ;XREF[1,0]:   0040130d
           ;param_2       undefined4           8                      ;XREF[3,0]:   004012dd,0040130a,00401364
@@ -1204,7 +1204,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.7(void * this, undefined4 param_1, undefined4 param_2, undefined4 param_3)
+                            ;undefined FUN_L1.7(void * this, undefined4 param_1, undefined4 param_2, undefined4 param_3)
           ;this          void *             ECX                      
           ;param_1       undefined4           4                      ;XREF[1,0]:   00401397
           ;param_2       undefined4           8                      ;XREF[1,0]:   00401393
@@ -1219,7 +1219,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;int FUN_N1.15(void * this, char * param_1)
+                            ;int FUN_L1.15(void * this, char * param_1)
           ;this          void *             ECX                      
           ;param_1       char *               4                      ;XREF[1,0]:   004013a8
                                                           ;XREF[2,0]:   0040185e,0040186b
@@ -1238,7 +1238,7 @@ Headers:004003ff00              ??          00h
 .text:004013be  50              PUSH        EAX                                     
 .text:004013bf  56              PUSH        ESI                                     
 .text:004013c0  8bcf            MOV         this,EDI                                
-.text:004013c2  e8fefeffff      CALL        FUN_N1.6                                ;int FUN_N1.6(void * this, undefined4...
+.text:004013c2  e8fefeffff      CALL        FUN_L1.6                                ;int FUN_L1.6(void * this, undefined4...
                             LAB_004013c7:                 ;XREF[1,0]:   004013b5
 .text:004013c7  5f              POP         EDI                                     
 .text:004013c8  5e              POP         ESI                                     
@@ -1246,7 +1246,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined4 FUN_N1.4(int param_1)
+                            ;undefined4 FUN_L1.4(int param_1)
           ;param_1       int                ECX                      
                                                           ;XREF[7,0]:   00401081,004014b5,004018e0,00402442
                                                           ;             00402560,0040260d,0040261f
@@ -1288,7 +1288,7 @@ Headers:004003ff00              ??          00h
                                                           ;XREF[1,0]:   00402a1c
 .text:00401406  b8502c4000      MOV         EAX,LAB_00402c50                        
                             ;Setting up a local stack buffer for later use by the malware. 
-.text:0040140b  e880160000      CALL        FUN_N1.1_Set_up_local_stack_buffer      ;Setting up a local stack buffer for ...
+.text:0040140b  e880160000      CALL        FUN_L1.1_Set_up_local_stack_buffer      ;Setting up a local stack buffer for ...
 .text:00401410  81ec74020000    SUB         ESP,0x274                               
 .text:00401416  53              PUSH        EBX                                     
 .text:00401417  56              PUSH        ESI                                     
@@ -1342,11 +1342,11 @@ Headers:004003ff00              ??          00h
 .text:004014a3  895dfc          MOV         dword ptr [EBP + -0x4],EBX              
                             LAB_004014a6:                 ;XREF[1,0]:   004014c9
 .text:004014a6  8d4da4          LEA         ECX,[EBP + -0x5c]                       
-.text:004014a9  e812fcffff      CALL        FUN_N1.3                                ;undefined * FUN_N1.3(int param_1)
+.text:004014a9  e812fcffff      CALL        FUN_L1.3                                ;undefined * FUN_L1.3(int param_1)
 .text:004014ae  3bc3            CMP         EAX,EBX                                 
 .text:004014b0  7519            JNZ         LAB_004014cb                            
 .text:004014b2  8d4da4          LEA         ECX,[EBP + -0x5c]                       
-.text:004014b5  e812ffffff      CALL        FUN_N1.4                                ;undefined4 FUN_N1.4(int param_1)
+.text:004014b5  e812ffffff      CALL        FUN_L1.4                                ;undefined4 FUN_L1.4(int param_1)
 .text:004014ba  6860ea0000      PUSH        0xea60                                  
 .text:004014bf  47              INC         EDI                                     
 .text:004014c0  ff1548304000    CALL        dword ptr [->KERNEL32.DLL::Sleep]       ;= 00003426
@@ -1434,7 +1434,7 @@ Headers:004003ff00              ??          00h
 .text:004015cd  50              PUSH        EAX                                     
 .text:004015ce  8818            MOV         byte ptr [EAX],BL                       
 .text:004015d0  ff75d4          PUSH        dword ptr [EBP + -0x2c]                 
-.text:004015d3  e8f3040000      CALL        FUN_N1.5                                ;size_t FUN_N1.5(HANDLE param_1, char...
+.text:004015d3  e8f3040000      CALL        FUN_L1.5                                ;size_t FUN_L1.5(HANDLE param_1, char...
 .text:004015d8  83c40c          ADD         ESP,0xc                                 
 .text:004015db  8bf0            MOV         ESI,EAX                                 
                             LAB_004015dd:                 ;XREF[2,0]:   004015c1,004015c5
@@ -1456,7 +1456,7 @@ Headers:004003ff00              ??          00h
 .text:0040160f  56              PUSH        ESI                                     
 .text:00401610  8d4da4          LEA         ECX,[EBP + -0x5c]                       
 .text:00401613  ff750c          PUSH        dword ptr [EBP + 0xc]                   
-.text:00401616  e8aafcffff      CALL        FUN_N1.6                                ;int FUN_N1.6(void * this, undefined4...
+.text:00401616  e8aafcffff      CALL        FUN_L1.6                                ;int FUN_L1.6(void * this, undefined4...
 .text:0040161b  85c0            TEST        EAX,EAX                                 
 .text:0040161d  7511            JNZ         LAB_00401630                            
 .text:0040161f  6830750000      PUSH        0x7530                                  
@@ -1479,7 +1479,7 @@ Headers:004003ff00              ??          00h
 .text:00401653  50              PUSH        EAX                                     
 .text:00401654  57              PUSH        EDI                                     
 .text:00401655  ff7514          PUSH        dword ptr [EBP + 0x14]                  
-.text:00401658  e832fdffff      CALL        FUN_N1.7                                ;undefined FUN_N1.7(void * this, unde...
+.text:00401658  e832fdffff      CALL        FUN_L1.7                                ;undefined FUN_L1.7(void * this, unde...
 .text:0040165d  85c0            TEST        EAX,EAX                                 
 .text:0040165f  0f8454ffffff    JZ          LAB_004015b9                            
                             LAB_00401665:                 ;XREF[1,0]:   00401686
@@ -1493,7 +1493,7 @@ Headers:004003ff00              ??          00h
 .text:00401677  03c6            ADD         EAX,ESI                                 
 .text:00401679  6800100000      PUSH        0x1000                                  
 .text:0040167e  50              PUSH        EAX                                     
-.text:0040167f  e80bfdffff      CALL        FUN_N1.7                                ;undefined FUN_N1.7(void * this, unde...
+.text:0040167f  e80bfdffff      CALL        FUN_L1.7                                ;undefined FUN_L1.7(void * this, unde...
 .text:00401684  85c0            TEST        EAX,EAX                                 
 .text:00401686  75dd            JNZ         LAB_00401665                            
                             LAB_00401688:                 ;XREF[1,0]:   0040166b
@@ -1516,7 +1516,7 @@ Headers:004003ff00              ??          00h
 .text:004016bc  8b75e4          MOV         ESI,dword ptr [EBP + -0x1c]             
                             LAB_004016bf:                 ;XREF[1,0]:   004016ba
 .text:004016bf  56              PUSH        ESI                                     
-.text:004016c0  e826030000      CALL        FUN_N1.8                                ;char * FUN_N1.8(char * param_1)
+.text:004016c0  e826030000      CALL        FUN_L1.8                                ;char * FUN_L1.8(char * param_1)
 .text:004016c5  56              PUSH        ESI                                     
 .text:004016c6  8945e4          MOV         dword ptr [EBP + -0x1c],EAX             
 .text:004016c9  ff7510          PUSH        dword ptr [EBP + 0x10]                  
@@ -1528,7 +1528,7 @@ Headers:004003ff00              ??          00h
 .text:004016da  53              PUSH        EBX                                     
 .text:004016db  56              PUSH        ESI                                     
 .text:004016dc  33ff            XOR         EDI,EDI                                 
-.text:004016de  e84b030000      CALL        FUN_N1.9                                ;int FUN_N1.9(char * param_1, uint pa...
+.text:004016de  e84b030000      CALL        FUN_L1.9                                ;int FUN_L1.9(char * param_1, uint pa...
 .text:004016e3  83c40c          ADD         ESP,0xc                                 
 .text:004016e6  be2c404000      MOV         ESI,.data:s_shell_0040402c              ;= "shell"
                             LAB_004016eb:                 ;XREF[1,0]:   00401708
@@ -1561,20 +1561,20 @@ Headers:004003ff00              ??          00h
 .text:0040172b  ff75dc          PUSH        dword ptr [EBP + -0x24]                 
 .text:0040172e  ff75e0          PUSH        dword ptr [EBP + -0x20]                 
 .text:00401731  ff750c          PUSH        dword ptr [EBP + 0xc]                   
-.text:00401734  e870040000      CALL        FUN_N1.10                               ;undefined FUN_N1.10(char * param_1, ...
+.text:00401734  e870040000      CALL        FUN_L1.10                               ;undefined FUN_L1.10(char * param_1, ...
 .text:00401739  83c40c          ADD         ESP,0xc                                 
 .text:0040173c  e9fc000000      JMP         LAB_0040183d                            
                             caseD_1:                      ;XREF[2,0]:   00401724,00401977
 .text:00401741  8d45a4          LEA         EAX,[EBP + -0x5c]                       
 .text:00401744  50              PUSH        EAX                                     
 .text:00401745  ff750c          PUSH        dword ptr [EBP + 0xc]                   
-.text:00401748  e8c5060000      CALL        FUN_N1.11                               ;undefined FUN_N1.11(char * param_1)
+.text:00401748  e8c5060000      CALL        FUN_L1.11                               ;undefined FUN_L1.11(char * param_1)
 .text:0040174d  e9e9000000      JMP         LAB_0040183b                            
                             caseD_2:                      ;XREF[2,0]:   00401724,0040197b
 .text:00401752  8d45a4          LEA         EAX,[EBP + -0x5c]                       
 .text:00401755  50              PUSH        EAX                                     
 .text:00401756  ff750c          PUSH        dword ptr [EBP + 0xc]                   
-.text:00401759  e8d4090000      CALL        FUN_N1.12                               ;undefined FUN_N1.12(char * param_1)
+.text:00401759  e8d4090000      CALL        FUN_L1.12                               ;undefined FUN_L1.12(char * param_1)
 .text:0040175e  e9d8000000      JMP         LAB_0040183b                            
                             caseD_4:                      ;XREF[3,0]:   00401724,0040197f,00401983
                             caseD_3:                      
@@ -1598,7 +1598,7 @@ Headers:004003ff00              ??          00h
 .text:00401794  8d45a4          LEA         EAX,[EBP + -0x5c]                       
 .text:00401797  50              PUSH        EAX                                     
 .text:00401798  ff750c          PUSH        dword ptr [EBP + 0xc]                   
-.text:0040179b  e8a50e0000      CALL        FUN_N1.14                               ;undefined FUN_N1.14(char * param_1)
+.text:0040179b  e8a50e0000      CALL        FUN_L1.14                               ;undefined FUN_L1.14(char * param_1)
 .text:004017a0  e996000000      JMP         LAB_0040183b                            
                             caseD_6:                      ;XREF[2,0]:   00401724,0040198b
 .text:004017a5  8d45ec          LEA         EAX,[EBP + -0x14]                       
@@ -1630,7 +1630,7 @@ Headers:004003ff00              ??          00h
 .text:004017f4  8d45a4          LEA         EAX,[EBP + -0x5c]                       
 .text:004017f7  50              PUSH        EAX                                     
 .text:004017f8  ff750c          PUSH        dword ptr [EBP + 0xc]                   
-.text:004017fb  e8e60f0000      CALL        FUN_N1.19                               ;undefined FUN_N1.19(char * param_1)
+.text:004017fb  e8e60f0000      CALL        FUN_L1.19                               ;undefined FUN_L1.19(char * param_1)
 .text:00401800  eb39            JMP         LAB_0040183b                            
                             caseD_b:                      ;XREF[2,0]:   0040171e,00401724
 .text:00401802  391da0474000    CMP         dword ptr [.data:DAT_004047a0],EBX      
@@ -1665,17 +1665,17 @@ Headers:004003ff00              ??          00h
                             caseD_7:                      ;XREF[2,0]:   00401724,0040198f
 .text:00401856  6884404000      PUSH        .data:s_Sleep_Time:_00404084            ;= "Sleep Time:"
 .text:0040185b  8d4da4          LEA         ECX,[EBP + -0x5c]                       
-.text:0040185e  e844fbffff      CALL        FUN_N1.15                               ;int FUN_N1.15(void * this, char * pa...
+.text:0040185e  e844fbffff      CALL        FUN_L1.15                               ;int FUN_L1.15(void * this, char * pa...
                             LAB_00401863:                 ;XREF[1,0]:   00401889
 .text:00401863  6868474000      PUSH        .data:DAT_00404768                      
 .text:00401868  8d4da4          LEA         ECX,[EBP + -0x5c]                       
-.text:0040186b  e837fbffff      CALL        FUN_N1.15                               ;int FUN_N1.15(void * this, char * pa...
+.text:0040186b  e837fbffff      CALL        FUN_L1.15                               ;int FUN_L1.15(void * this, char * pa...
 .text:00401870  8d45f0          LEA         EAX,[EBP + -0x10]                       
 .text:00401873  8d4da4          LEA         ECX,[EBP + -0x5c]                       
 .text:00401876  50              PUSH        EAX                                     
 .text:00401877  6800100000      PUSH        0x1000                                  
 .text:0040187c  ff7514          PUSH        dword ptr [EBP + 0x14]                  
-.text:0040187f  e80bfbffff      CALL        FUN_N1.7                                ;undefined FUN_N1.7(void * this, unde...
+.text:0040187f  e80bfbffff      CALL        FUN_L1.7                                ;undefined FUN_L1.7(void * this, unde...
 .text:00401884  8b45f0          MOV         EAX,dword ptr [EBP + -0x10]             
 .text:00401887  3bc3            CMP         EAX,EBX                                 
 .text:00401889  74d8            JZ          LAB_00401863                            
@@ -1693,7 +1693,7 @@ Headers:004003ff00              ??          00h
 .text:004018a8  8d45a4          LEA         EAX,[EBP + -0x5c]                       
 .text:004018ab  50              PUSH        EAX                                     
 .text:004018ac  ff750c          PUSH        dword ptr [EBP + 0xc]                   
-.text:004018af  e8ee0c0000      CALL        FUN_N1.16                               ;undefined FUN_N1.16(char * param_1, ...
+.text:004018af  e8ee0c0000      CALL        FUN_L1.16                               ;undefined FUN_L1.16(char * param_1, ...
 .text:004018b4  83c40c          ADD         ESP,0xc                                 
                             LAB_004018b7:                 ;XREF[4,0]:   0040153f,00401563,00401633,004016a2
 .text:004018b7  8b75cc          MOV         ESI,dword ptr [EBP + -0x34]             
@@ -1708,7 +1708,7 @@ Headers:004003ff00              ??          00h
 .text:004018d7  ff1588304000    CALL        dword ptr [->KERNEL32.DLL::WaitForSin...;= 000033c2
                             LAB_004018dd:                 ;XREF[1,0]:   004018c0
 .text:004018dd  8d4da4          LEA         ECX,[EBP + -0x5c]                       
-.text:004018e0  e8e7faffff      CALL        FUN_N1.4                                ;undefined4 FUN_N1.4(int param_1)
+.text:004018e0  e8e7faffff      CALL        FUN_L1.4                                ;undefined4 FUN_L1.4(int param_1)
 .text:004018e5  395d0c          CMP         dword ptr [EBP + 0xc],EBX               
 .text:004018e8  7409            JZ          LAB_004018f3                            
 .text:004018ea  ff750c          PUSH        dword ptr [EBP + 0xc]                   
@@ -1758,7 +1758,7 @@ Headers:004003ff00              ??          00h
                             LAB_00401957:                 ;XREF[1,0]:   00401950
 .text:00401957  8d4da4          LEA         ECX,[EBP + -0x5c]                       
 .text:0040195a  897dfc          MOV         dword ptr [EBP + -0x4],EDI              
-.text:0040195d  e816f7ffff      CALL        FUN_N1.21                               ;undefined FUN_N1.21(undefined4 * par...
+.text:0040195d  e816f7ffff      CALL        FUN_L1.21                               ;undefined FUN_L1.21(undefined4 * par...
                             LAB_00401962:                 ;XREF[3,0]:   0040142c,00401435,0040144d
 .text:00401962  8b4df4          MOV         ECX,dword ptr [EBP + -0xc]              
 .text:00401965  5f              POP         EDI                                     
@@ -1825,7 +1825,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;char * FUN_N1.8(char * param_1)
+                            ;char * FUN_L1.8(char * param_1)
           ;param_1       char *               4                      ;XREF[1,0]:   004019ec
                                                           ;XREF[1,0]:   004016c0
 .text:004019eb  57              PUSH        EDI                                     
@@ -1868,7 +1868,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;int FUN_N1.9(char * param_1, uint param_2, char param_3)
+                            ;int FUN_L1.9(char * param_1, uint param_2, char param_3)
           ;param_1       char *               4                      ;XREF[2,0]:   00401a45,00401a67
           ;param_2       uint                 8                      ;XREF[4,0]:   00401a33,00401a51,00401a5e,00401ab8
           ;param_3       char                 c                      ;XREF[2,0]:   00401a4e,00401aa9
@@ -1954,7 +1954,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;size_t FUN_N1.5(HANDLE param_1, char * param_2, int param_3)
+                            ;size_t FUN_L1.5(HANDLE param_1, char * param_2, int param_3)
           ;param_1       HANDLE               4                      ;XREF[2,0]:   00401b0f,00401b49
           ;param_2       char *               8                      ;XREF[3,0]:   00401ad6,00401ae4,00401af4
           ;param_3       int                  c                      ;XREF[2,0]:   00401b18,00401b5c
@@ -2049,7 +2049,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.10(char * param_1, HANDLE param_2, HANDLE param_3)
+                            ;undefined FUN_L1.10(char * param_1, HANDLE param_2, HANDLE param_3)
           ;param_1       char *               4                      ;XREF[9,0]:   00401c42,00401c57,00401c66,00401c73,00401d03
                                                                      ;             00401d73,00401dc9,00401de1,00401e02
           ;param_2       HANDLE               8                      ;XREF[2,0]:   00401bb2,00401c89
@@ -2272,7 +2272,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.11(char * param_1)
+                            ;undefined FUN_L1.11(char * param_1)
           ;param_1       char *               4                      ;XREF[4,0]:   00401ed0,00401f5a,00401fa5,0040200b
           ;local_5       undefined1          -5                      ;XREF[4,0]:   00402005,00402031,00402051,00402104
           ;local_c       undefined4          -c                      ;XREF[8,0]:   00401f1f,00401f6a,00401f7f,00401fb4,00401ff6
@@ -2590,7 +2590,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.12(char * param_1)
+                            ;undefined FUN_L1.12(char * param_1)
           ;param_1       char *               4                      ;XREF[3,0]:   004021a3,00402218,00402277
           ;local_8       undefined4          -8                      ;XREF[2,0]:   00402190,00402199
           ;local_20      undefined4         -20                      ;XREF[1,0]:   0040223c
@@ -2740,7 +2740,7 @@ Headers:004003ff00              ??          00h
                             ;undefined4 FUN_N1.13(void)
                                                           ;XREF[1,0]:   00401770
 .text:00402292  b8642c4000      MOV         EAX,LAB_00402c64                        
-.text:00402297  e8f4070000      CALL        FUN_N1.1_Set_up_local_stack_buffer      ;undefined FUN_N1.1_Set_up_local_stac...
+.text:00402297  e8f4070000      CALL        FUN_L1.1_Set_up_local_stack_buffer      ;undefined FUN_L1.1_Set_up_local_stac...
 .text:0040229c  81ec84020000    SUB         ESP,0x284                               
 .text:004022a2  53              PUSH        EBX                                     
 .text:004022a3  56              PUSH        ESI                                     
@@ -2862,28 +2862,28 @@ Headers:004003ff00              ??          00h
 .text:004023f8  83c40c          ADD         ESP,0xc                                 
 .text:004023fb  8d4db4          LEA         ECX,[EBP + -0x4c]                       
 .text:004023fe  ff3594474000    PUSH        dword ptr [.data:DAT_00404794]          
-.text:00402404  e890edffff      CALL        FUN_N1.2&13.1                           ;undefined4 FUN_N1.2&13.1(void * this...
+.text:00402404  e890edffff      CALL        FUN_L1.2&13.1                           ;undefined4 FUN_L1.2&13.1(void * this...
 .text:00402409  8d8570fdffff    LEA         EAX,[EBP + 0xfffffd70]                  
 .text:0040240f  8d4db4          LEA         ECX,[EBP + -0x4c]                       
 .text:00402412  50              PUSH        EAX                                     
-.text:00402413  e8c6edffff      CALL        FUN_N.1.2&13.2                          ;undefined4 FUN_N.1.2&13.2(void * thi...
+.text:00402413  e8c6edffff      CALL        FUN_L.1.2&13.2                          ;undefined4 FUN_L.1.2&13.2(void * thi...
 .text:00402418  395de8          CMP         dword ptr [EBP + -0x18],EBX             
 .text:0040241b  750f            JNZ         LAB_0040242c                            
 .text:0040241d  8d8574ffffff    LEA         EAX,[EBP + 0xffffff74]                  
 .text:00402423  8d4db4          LEA         ECX,[EBP + -0x4c]                       
 .text:00402426  50              PUSH        EAX                                     
-.text:00402427  e854eeffff      CALL        FUN_N1.2&13.3                           ;undefined4 FUN_N1.2&13.3(void * this...
+.text:00402427  e854eeffff      CALL        FUN_L1.2&13.3                           ;undefined4 FUN_L1.2&13.3(void * this...
                             LAB_0040242c:                 ;XREF[1,0]:   0040241b
 .text:0040242c  8d4db4          LEA         ECX,[EBP + -0x4c]                       
-.text:0040242f  e88cecffff      CALL        FUN_N1.3                                ;undefined * FUN_N1.3(int param_1)
+.text:0040242f  e88cecffff      CALL        FUN_L1.3                                ;undefined * FUN_L1.3(int param_1)
 .text:00402434  85c0            TEST        EAX,EAX                                 
 .text:00402436  0f8429010000    JZ          LAB_00402565                            
 .text:0040243c  897d08          MOV         dword ptr [EBP + 0x8],EDI               
                             LAB_0040243f:                 ;XREF[1,0]:   00402558
 .text:0040243f  8d4db4          LEA         ECX,[EBP + -0x4c]                       
-.text:00402442  e885efffff      CALL        FUN_N1.4                                ;undefined4 FUN_N1.4(int param_1)
+.text:00402442  e885efffff      CALL        FUN_L1.4                                ;undefined4 FUN_L1.4(int param_1)
 .text:00402447  8d4db4          LEA         ECX,[EBP + -0x4c]                       
-.text:0040244a  e871ecffff      CALL        FUN_N1.3                                ;undefined * FUN_N1.3(int param_1)
+.text:0040244a  e871ecffff      CALL        FUN_L1.3                                ;undefined * FUN_L1.3(int param_1)
 .text:0040244f  3bc3            CMP         EAX,EBX                                 
 .text:00402451  0f8406010000    JZ          LAB_0040255d                            
 .text:00402457  395de8          CMP         dword ptr [EBP + -0x18],EBX             
@@ -2907,7 +2907,7 @@ Headers:004003ff00              ??          00h
 .text:00402481  ff75f0          PUSH        dword ptr [EBP + -0x10]                 
 .text:00402484  8d4db4          LEA         ECX,[EBP + -0x4c]                       
 .text:00402487  56              PUSH        ESI                                     
-.text:00402488  e838eeffff      CALL        FUN_N1.6                                ;int FUN_N1.6(void * this, undefined4...
+.text:00402488  e838eeffff      CALL        FUN_L1.6                                ;int FUN_L1.6(void * this, undefined4...
 .text:0040248d  3bc3            CMP         EAX,EBX                                 
 .text:0040248f  8945e0          MOV         dword ptr [EBP + -0x20],EAX             
 .text:00402492  0f84b6000000    JZ          LAB_0040254e                            
@@ -2922,7 +2922,7 @@ Headers:004003ff00              ??          00h
 .text:004024af  50              PUSH        EAX                                     
 .text:004024b0  57              PUSH        EDI                                     
 .text:004024b1  56              PUSH        ESI                                     
-.text:004024b2  e8d8eeffff      CALL        FUN_N1.7                                ;undefined FUN_N1.7(void * this, unde...
+.text:004024b2  e8d8eeffff      CALL        FUN_L1.7                                ;undefined FUN_L1.7(void * this, unde...
 .text:004024b7  68b0444000      PUSH        .data:s_Fetch_server_error_004044b0     ;= "Fetch server error"
 .text:004024bc  56              PUSH        ESI                                     
 .text:004024bd  8945e0          MOV         dword ptr [EBP + -0x20],EAX             
@@ -2990,7 +2990,7 @@ Headers:004003ff00              ??          00h
 .text:00402558  e9e2feffff      JMP         LAB_0040243f                            
                             LAB_0040255d:                 ;XREF[1,0]:   00402451
 .text:0040255d  8d4db4          LEA         ECX,[EBP + -0x4c]                       
-.text:00402560  e867eeffff      CALL        FUN_N1.4                                ;undefined4 FUN_N1.4(int param_1)
+.text:00402560  e867eeffff      CALL        FUN_L1.4                                ;undefined4 FUN_L1.4(int param_1)
                             LAB_00402565:                 ;XREF[7,0]:   0040238d,004023bb,004023c4,00402436
                                                           ;             004024ca,00402551,00402556
 .text:00402565  395de4          CMP         dword ptr [EBP + -0x1c],EBX             
@@ -3009,7 +3009,7 @@ Headers:004003ff00              ??          00h
                             LAB_00402583:                 ;XREF[1,0]:   004022e4
 .text:00402583  834dfcff        OR          dword ptr [EBP + -0x4],0xffffffff       
 .text:00402587  8d4db4          LEA         ECX,[EBP + -0x4c]                       
-.text:0040258a  e8e9eaffff      CALL        FUN_N1.21                               ;undefined FUN_N1.21(undefined4 * par...
+.text:0040258a  e8e9eaffff      CALL        FUN_L1.21                               ;undefined FUN_L1.21(undefined4 * par...
 .text:0040258f  8b4df4          MOV         ECX,dword ptr [EBP + -0xc]              
 .text:00402592  8bc6            MOV         EAX,ESI                                 
 .text:00402594  5f              POP         EDI                                     
@@ -3021,7 +3021,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.16(char * param_1, void * param_2, HANDLE param_3)
+                            ;undefined FUN_L1.16(char * param_1, void * param_2, HANDLE param_3)
           ;param_1       char *               4                      ;XREF[3,0]:   004025af,0040260a,00402635
           ;param_2       void *               8                      ;XREF[1,0]:   00402602
           ;param_3       HANDLE               c                      ;XREF[1,0]:   004025c0
@@ -3061,14 +3061,14 @@ Headers:004003ff00              ??          00h
 .text:00402605  83c40c          ADD         ESP,0xc                                 
 .text:00402608  8bcf            MOV         ECX,EDI                                 
 .text:0040260a  894508          MOV         dword ptr [EBP + param_1+0x4],EAX       
-.text:0040260d  e8baedffff      CALL        FUN_N1.4                                ;undefined4 FUN_N1.4(int param_1)
+.text:0040260d  e8baedffff      CALL        FUN_L1.4                                ;undefined4 FUN_L1.4(int param_1)
                             LAB_00402612:                 ;XREF[1,0]:   00402633
 .text:00402612  8bcf            MOV         ECX,EDI                                 
-.text:00402614  e8a7eaffff      CALL        FUN_N1.3                                ;undefined * FUN_N1.3(int param_1)
+.text:00402614  e8a7eaffff      CALL        FUN_L1.3                                ;undefined * FUN_L1.3(int param_1)
 .text:00402619  85c0            TEST        EAX,EAX                                 
 .text:0040261b  7518            JNZ         LAB_00402635                            
 .text:0040261d  8bcf            MOV         ECX,EDI                                 
-.text:0040261f  e8a8edffff      CALL        FUN_N1.4                                ;undefined4 FUN_N1.4(int param_1)
+.text:0040261f  e8a8edffff      CALL        FUN_L1.4                                ;undefined4 FUN_L1.4(int param_1)
 .text:00402624  6860ea0000      PUSH        0xea60                                  
 .text:00402629  43              INC         EBX                                     
 .text:0040262a  ff1548304000    CALL        dword ptr [->KERNEL32.DLL::Sleep]       ;= 00003426
@@ -3078,7 +3078,7 @@ Headers:004003ff00              ??          00h
 .text:00402635  ff7508          PUSH        dword ptr [EBP + param_1+0x4]           
 .text:00402638  8bcf            MOV         ECX,EDI                                 
 .text:0040263a  56              PUSH        ESI                                     
-.text:0040263b  e885ecffff      CALL        FUN_N1.6                                ;int FUN_N1.6(void * this, undefined4...
+.text:0040263b  e885ecffff      CALL        FUN_L1.6                                ;int FUN_L1.6(void * this, undefined4...
 .text:00402640  5f              POP         EDI                                     
 .text:00402641  5e              POP         ESI                                     
 .text:00402642  5b              POP         EBX                                     
@@ -3087,7 +3087,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.14(char * param_1)
+                            ;undefined FUN_L1.14(char * param_1)
           ;param_1       char *               4                      ;XREF[4,0]:   004026c4,0040270d,0040274d,0040278d
           ;local_10      undefined4         -10                      ;XREF[1,0]:   004026d9
           ;local_14      undefined4         -14                      ;XREF[2,0]:   0040268c,004026d4
@@ -3252,7 +3252,7 @@ Headers:004003ff00              ??          00h
 .text:004027c1  50              PUSH        EAX                                     
 .text:004027c2  ff3588474000    PUSH        dword ptr [.data:DAT_00404788]          
 .text:004027c8  ff742410        PUSH        dword ptr [ESP + param_1+0xc]           
-.text:004027cc  e846000000      CALL        FUN_N.1.18.1                            ;undefined4 FUN_N.1.18.1(char * param...
+.text:004027cc  e846000000      CALL        FUN_L.1.18.1                            ;undefined4 FUN_L.1.18.1(char * param...
 .text:004027d1  83c410          ADD         ESP,0x10                                
 .text:004027d4  c3              RET                                                  
                             LAB_004027d5:                 ;XREF[2,0]:   004027af,004027b8
@@ -3265,7 +3265,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.19(char * param_1)
+                            ;undefined FUN_L1.19(char * param_1)
           ;param_1       char *               4                      ;XREF[1,0]:   0040280b
                                                           ;XREF[1,0]:   004017fb
 .text:004027e6  8b0d84474000    MOV         ECX,dword ptr [.data:DAT_00404784]      
@@ -3292,7 +3292,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined4 FUN_N.1.18.1(char * param_1, undefined4 param_2, DWORD param_3)
+                            ;undefined4 FUN_L.1.18.1(char * param_1, undefined4 param_2, DWORD param_3)
           ;param_1       char *               4                      ;XREF[4,0]:   0040286a,004028fa,00402933,00402966
           ;param_2       undefined4           8                      ;XREF[1,0]:   004028a9
           ;param_3       DWORD                c                      ;XREF[5,0]:   00402823,00402833,00402845,00402883,00402971
@@ -3637,7 +3637,7 @@ Headers:004003ff00              ??          00h
                             ;************************************************************************************************
                             ;*                                           FUNCTION                                           *
                             ;************************************************************************************************
-                            ;undefined FUN_N1.1_Set_up_local_stack_buffer(void)
+                            ;undefined FUN_L1.1_Set_up_local_stack_buffer(void)
           ;local_res0    undefined4           0                      ;XREF[3,0]:   00402a9a,00402aa5,00402aa9
                                                           ;XREF[2,0]:   0040140b,00402297
 .text:00402a90  6aff            PUSH        -0x1                                    
@@ -3863,7 +3863,7 @@ Headers:004003ff00              ??          00h
                             ;undefined Unwind@00402c48(void)
                                                           ;XREF[1,0]:   0040318c
 .text:00402c48  8d4da4          LEA         ECX,[EBP + -0x5c]                       
-.text:00402c4b  e928e4ffff      JMP         FUN_N1.21                               ;undefined FUN_N1.21(undefined4 * par...
+.text:00402c4b  e928e4ffff      JMP         FUN_L1.21                               ;undefined FUN_L1.21(undefined4 * par...
                             LAB_00402c50:                 ;XREF[1,0]:   00401406
 .text:00402c50  b868314000      MOV         EAX,.rdata:FuncInfo_00403168            
 .text:00402c55  e926feffff      JMP         LAB_00402a80                            
@@ -3875,7 +3875,7 @@ Headers:004003ff00              ??          00h
                             ;undefined Unwind@00402c5c(void)
                                                           ;XREF[1,0]:   004031b4
 .text:00402c5c  8d4db4          LEA         ECX,[EBP + -0x4c]                       
-.text:00402c5f  e914e4ffff      JMP         FUN_N1.21                               ;undefined FUN_N1.21(undefined4 * par...
+.text:00402c5f  e914e4ffff      JMP         FUN_L1.21                               ;undefined FUN_L1.21(undefined4 * par...
                             LAB_00402c64:                 ;XREF[1,0]:   00402292
 .text:00402c64  b890314000      MOV         EAX,.rdata:FuncInfo_00403190            
 .text:00402c69  e912feffff      JMP         LAB_00402a80                            
