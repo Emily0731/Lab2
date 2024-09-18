@@ -1332,12 +1332,12 @@ Headers:004003ff00              ??          00h
 .text:00401495  ff7510          PUSH        dword ptr [EBP + 0x10]                  
 .text:00401498  ff750c          PUSH        dword ptr [EBP + 0xc]                   
 .text:0040149b  ff7508          PUSH        dword ptr [EBP + 0x8]                   
-.text:0040149e  e879fbffff      CALL        FUN_N1.2                                ;Attempting to communicate with the C&C? 
+.text:0040149e  e879fbffff      CALL        FUN_N1.2                                ;Attempting to communicate with the C&C? EBP+8 = 1st function argument, EBP+0xC = 2nd function argument, EBP+0x10 = 3rd function argument, pcVar1 = pointer to 1024 bytes of memory, EBP+0x14 = 4rd function argument?, 3600000 = 1 hour
 .text:004014a3  895dfc          MOV         dword ptr [EBP + -0x4],EBX              ;Maybe setting a flag 4 bytes below the EBP
                             LAB_004014a6:                 ;XREF[1,0]:   004014c9
 .text:004014a6  8d4da4          LEA         ECX,[EBP + -0x5c]                       
 .text:004014a9  e812fcffff      CALL        FUN_L1.3_Connect_to_CC_server           ;undefined * FUN_L1.3_Connect_to_CC_server(int param_1)
-.text:004014ae  3bc3            CMP         EAX,EBX                                 ;Target function succeeded
+.text:004014ae  3bc3            CMP         EAX,EBX                                 ;Connection with CC was established successfully
 .text:004014b0  7519            JNZ         LAB_004014cb                            
 .text:004014b2  8d4da4          LEA         ECX,[EBP + -0x5c]                       ;Close 3 internet handles and reset the respective memory locations
 .text:004014b5  e812ffffff      CALL        FUN_L1.4_Close_InternetHandles          ;undefined4 FUN_L1.4_Close_InternetHandles(int param_1)
@@ -1347,16 +1347,16 @@ Headers:004003ff00              ??          00h
 .text:004014c6  83ff05          CMP         EDI,0x5                                 
 .text:004014c9  72db            JC          LAB_004014a6                            
                             LAB_004014cb:                 ;XREF[1,0]:   004014b0
-.text:004014cb  83ff05          CMP         EDI,0x5                                 
+.text:004014cb  83ff05          CMP         EDI,0x5                                 ;If connected to the CC
 .text:004014ce  0f84e6030000    JZ          LAB_004018ba                            
 .text:004014d4  6800000100      PUSH        0x10000                                 
 .text:004014d9  e890150000      CALL        MSVCRT.DLL::operator_new                ;void * operator_new(uint param_1)
-.text:004014de  89450c          MOV         dword ptr [EBP + 0xc],EAX               
+.text:004014de  89450c          MOV         dword ptr [EBP + 0xc],EAX               ;Make the second argument point to 4096 bytes of memory
 .text:004014e1  c70424001...    MOV         dword ptr [ESP]=>local_284,0x1000       
 .text:004014e8  e881150000      CALL        MSVCRT.DLL::operator_new                ;void * operator_new(uint param_1)
 .text:004014ed  395d0c          CMP         dword ptr [EBP + 0xc],EBX               
 .text:004014f0  59              POP         ECX                                     
-.text:004014f1  894514          MOV         dword ptr [EBP + 0x14],EAX              
+.text:004014f1  894514          MOV         dword ptr [EBP + 0x14],EAX              ;Make the fourth argument point to 4096 bytes of memory
 .text:004014f4  0f84c0030000    JZ          LAB_004018ba                            
 .text:004014fa  3bc3            CMP         EAX,EBX                                 
 .text:004014fc  0f84b8030000    JZ          LAB_004018ba                            
@@ -1364,7 +1364,7 @@ Headers:004003ff00              ??          00h
 .text:00401507  e862150000      CALL        MSVCRT.DLL::operator_new                ;void * operator_new(uint param_1)
 .text:0040150c  3bc3            CMP         EAX,EBX                                 
 .text:0040150e  59              POP         ECX                                     
-.text:0040150f  894510          MOV         dword ptr [EBP + 0x10],EAX              
+.text:0040150f  894510          MOV         dword ptr [EBP + 0x10],EAX              ;Make the third argument point to 512 bytes of memory
 .text:00401512  0f84a2030000    JZ          LAB_004018ba                            
 .text:00401518  6a0c            PUSH        0xc                                     
 .text:0040151a  8d4598          LEA         EAX,[EBP + -0x68]                       
@@ -1373,13 +1373,13 @@ Headers:004003ff00              ??          00h
 .text:00401524  53              PUSH        EBX                                     
 .text:00401525  50              PUSH        EAX                                     
 .text:00401526  8d45dc          LEA         EAX,[EBP + -0x24]                       
-.text:00401529  897d98          MOV         dword ptr [EBP + -0x68],EDI             
+.text:00401529  897d98          MOV         dword ptr [EBP + -0x68],EDI             ;Setting up a SECURITY_ATTRIBUTES structure with nLength = 12
 .text:0040152c  50              PUSH        EAX                                     
 .text:0040152d  8d45d4          LEA         EAX,[EBP + -0x2c]                       
 .text:00401530  50              PUSH        EAX                                     
-.text:00401531  c745a0010...    MOV         dword ptr [EBP + -0x60],0x1             
-.text:00401538  895d9c          MOV         dword ptr [EBP + -0x64],EBX             
-.text:0040153b  ffd6            CALL        ESI=>KERNEL32.DLL::CreatePipe           
+.text:00401531  c745a0010...    MOV         dword ptr [EBP + -0x60],0x1             ;bInheritHandle = 1, pipe handles can be inherited by child processes.
+.text:00401538  895d9c          MOV         dword ptr [EBP + -0x64],EBX             ;lpSecurityDescriptor = NULL, default security descriptor should be used
+.text:0040153b  ffd6            CALL        ESI=>KERNEL32.DLL::CreatePipe           ;Setting up an annonymous pipe. EBP-0x2c,EBP-0x24 are for read and write handle addresses respectively. 0 is for default buffer size = 4096 bytes
 .text:0040153d  85c0            TEST        EAX,EAX                                 
 .text:0040153f  0f8472030000    JZ          LAB_004018b7                            
 .text:00401545  8d458c          LEA         EAX,[EBP + -0x74]                       
@@ -1392,23 +1392,23 @@ Headers:004003ff00              ??          00h
 .text:00401552  897d8c          MOV         dword ptr [EBP + -0x74],EDI             
 .text:00401555  c74594010...    MOV         dword ptr [EBP + -0x6c],0x1             
 .text:0040155c  895d90          MOV         dword ptr [EBP + -0x70],EBX             
-.text:0040155f  ffd6            CALL        ESI=>KERNEL32.DLL::CreatePipe           
+.text:0040155f  ffd6            CALL        ESI=>KERNEL32.DLL::CreatePipe           ;Setting up a second annonymous pipe
 .text:00401561  85c0            TEST        EAX,EAX                                 
 .text:00401563  0f844e030000    JZ          LAB_004018b7                            
 .text:00401569  8d8584feffff    LEA         EAX,[EBP + 0xfffffe84]                  
 .text:0040156f  6804010000      PUSH        0x104                                   
 .text:00401574  50              PUSH        EAX                                     
-.text:00401575  ff157c304000    CALL        dword ptr [->KERNEL32.DLL::GetWindows...;= 00003400
+.text:00401575  ff157c304000    CALL        dword ptr [->KERNEL32.DLL::GetWindows...;Retrieves the Windows directory path and stores it in 260 bytes buffer
 .text:0040157b  8d8584feffff    LEA         EAX,[EBP + 0xfffffe84]                  
 .text:00401581  68f8404000      PUSH        .data:s_\tasks_004040f8                 ;= "\\tasks"
 .text:00401586  50              PUSH        EAX                                     
-.text:00401587  e8ee140000      CALL        MSVCRT.DLL::strcat                      ;char * strcat(char * _Dest, char * _Source)
+.text:00401587  e8ee140000      CALL        MSVCRT.DLL::strcat                      ;Appends the string to the Windows directory path
 .text:0040158c  59              POP         ECX                                     
-.text:0040158d  8d8584feffff    LEA         EAX,[EBP + 0xfffffe84]                  
+.text:0040158d  8d8584feffff    LEA         EAX,[EBP + 0xfffffe84]                  ;Sets the current working directory to the new path
 .text:00401593  59              POP         ECX                                     
 .text:00401594  50              PUSH        EAX                                     
 .text:00401595  ff1580304000    CALL        dword ptr [->KERNEL32.DLL::SetCurrent...;= 000033e8
-.text:0040159b  ff75e4          PUSH        dword ptr [EBP + -0x1c]                 
+.text:0040159b  ff75e4          PUSH        dword ptr [EBP + -0x1c]                 ;The value in EBP - 0x1c is injected into to the string to indicate successful connection. The resulting string is saved in the 2nd function argument.   
 .text:0040159e  68e4404000      PUSH        .data:s__%s_Connected!_004040e4         ;= "\r\n%s Connected!\r\n"
 .text:004015a3  ff750c          PUSH        dword ptr [EBP + 0xc]                   
 .text:004015a6  ff15f8304000    CALL        dword ptr [->MSVCRT.DLL::sprintf]       ;= 000035e0
@@ -1421,12 +1421,12 @@ Headers:004003ff00              ??          00h
 .text:004015b9  33ff            XOR         EDI,EDI                                 
 .text:004015bb  391da0474000    CMP         dword ptr [.data:DAT_004047a0],EBX      
 .text:004015c1  741a            JZ          LAB_004015dd                            
-.text:004015c3  3bf3            CMP         ESI,EBX                                 
+.text:004015c3  3bf3            CMP         ESI,EBX                                 ;If the connection to CC couldn't establish
 .text:004015c5  7516            JNZ         LAB_004015dd                            
-.text:004015c7  ff75d0          PUSH        dword ptr [EBP + -0x30]                 
+.text:004015c7  ff75d0          PUSH        dword ptr [EBP + -0x30]                 ;Sets to 0
 .text:004015ca  8b450c          MOV         EAX,dword ptr [EBP + 0xc]               
 .text:004015cd  50              PUSH        EAX                                     
-.text:004015ce  8818            MOV         byte ptr [EAX],BL                       
+.text:004015ce  8818            MOV         byte ptr [EAX],BL                       ;The successful connection string is cleared
 .text:004015d0  ff75d4          PUSH        dword ptr [EBP + -0x2c]                 
 .text:004015d3  e8f3040000      CALL        FUN_L1.5                                ;size_t FUN_L1.5(HANDLE param_1, char * param_2, int param_3)
 .text:004015d8  83c40c          ADD         ESP,0xc                                 
